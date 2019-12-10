@@ -3,7 +3,7 @@ class Sessions {
     this.sessions = []
     this.initBindingsAndEventListeners()
     this.adapter = new SessionsAdapter()
-    this.fetchAndLoadNote()
+    this.fetchAndLoadSession()
   }
 
   initBindingsAndEventListeners() {
@@ -11,10 +11,10 @@ class Sessions {
     this.sessionContainer = document.getElementById('session-container')
   }
 
-  fetchAndLoadNote() {
+  fetchAndLoadSession() {
     this.adapter.getSessions()
       .then(sessions => {
-        return sessions.data.forEach(session => this.sessions.push(session))
+        return sessions.data.forEach(session => this.sessions.push(new Session(session)))
       })
       .then(() => {
         this.render()
@@ -22,6 +22,14 @@ class Sessions {
   }
 
   render() {
-    this.sessionContainer.innerHTML = 'sessions going here'
+    const sessionString = this.sessions.map(session => session.renderLi())
+
+    this.sessionContainer.innerHTML = sessionString.join("")
+  }
+
+  addSession() {
+    return `
+
+    `
   }
 }
