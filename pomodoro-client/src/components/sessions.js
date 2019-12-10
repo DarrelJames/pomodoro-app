@@ -25,11 +25,5 @@ class Sessions {
     const sessionString = this.sessions.map(session => session.renderLi())
 
     this.sessionContainer.innerHTML = sessionString.join("")
-  }
-
-  addSession() {
-    return `
-
-    `
-  }
+  }  
 }
