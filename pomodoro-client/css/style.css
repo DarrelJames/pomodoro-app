@@ -3,3 +3,28 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  font-size: 62.5%;
+}
+ul {
+  list-style: none;
+}
+#session-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  text-align: center;
+  flex: 1 1 25rem;
+  flex-direction: column;
+  min-height: 10vh;
+  min-width: 30rem;
+  margin: 2rem 5rem;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
