@@ -11,9 +11,9 @@ class Session {
     return `
     <li>
       <div class="card">
-      ${this.start_time.toLocaleTimeString()}
-      ${this.end_time.toLocaleTimeString()}
-      ${this.date.toDateString()}
+      <p>${this.start_time.toLocaleTimeString()}</p>
+      <p>${this.end_time.toLocaleTimeString()}</p>
+      <p>${this.date.toDateString()}</p>
       </div>
     </li>`
   }
