@@ -9,6 +9,16 @@ html {
 ul {
   list-style: none;
 }
+#pomodoro-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+
+
+
 #session-container {
   width: 90%;
   margin: auto;
