@@ -30,10 +30,7 @@ class Timer {
 
   toggleClock(reset) {
     if (reset) {
-      this.stopClock()
-      this.isClockRunning = false
-      this.currentTimeLeftInSession = this.workSessionDuration
-      this.displayCurrentTimeLeftInSession()
+      this.stopClock()      
       // STOP THE TIMER
     } else {
       if (this.isClockRunning === true) {
