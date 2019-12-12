@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     render json: SessionSerializer.new(session, options)
   end
 
-  def create
+  def create    
     session = Session.new(session_params)
 
     if session.save
@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
   end
 
   def session_params
-    params.permit(:date, :start_time, :end_time)
+    params.require(:session).permit(:date, :start_time, :end_time)
   end
 end
