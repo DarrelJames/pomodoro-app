@@ -9,8 +9,12 @@ class Sessions {
   initBindingsAndEventListeners() {
     this.sessionForm = document.getElementById('new-session')
     this.sessionContainer = document.getElementById('session-container')
+    this.sessionContainer.addEventListener('click', this.handleClick().bind(this))
   }
 
+  handleClick() {
+    
+  }
   createSession() {
     const value = new Date()
 
@@ -23,7 +27,7 @@ class Sessions {
   }
 
   updateSession(obj) {
-    this.adapter.updateSession(obj)
+    this.adapter.updateSession(obj).then(() => this.render())
   }
 
   fetchAndLoadSession() {
