@@ -13,11 +13,14 @@ class SessionsController < ApplicationController
     render json: SessionSerializer.new(session, options)
   end
 
-  def create    
+  def create
     session = Session.new(session_params)
 
     if session.save
-      render json: SessionSerializer.new(session)
+      options = {
+        include: [:notes]
+      }
+      render json: SessionSerializer.new(session, options)
     else
       render json: "Something went wrong"
     end
