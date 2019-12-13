@@ -20,7 +20,14 @@ class Timer {
 
   checkClick(e) {
     if (e.target.id === 'pomodoro-start') {
+
       this.toggleClock()
+
+      app.sessions.createSession().then(() => {
+        this.currentSession = app.sessions.sessions.slice(-1)[0]
+      })
+
+
     }
     if (e.target.id === 'pomodoro-stop') {
       this.toggleClock('reset')
@@ -107,8 +114,11 @@ class Timer {
     }
   }
   parseAndUpdateSession(workTime, breakTime) {
+    this.currentSession.end_time = new Date()
+    app.sessions.updateSession(this.currentSession)
+    app.sessions.render()
     console.log(workTime);
     console.log(breakTime);
-  
+
   }
 }
