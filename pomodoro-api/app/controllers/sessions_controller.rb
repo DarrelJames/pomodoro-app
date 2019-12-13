@@ -27,6 +27,6 @@ class SessionsController < ApplicationController
   end
 
   def session_params
-    params.require(:session).permit(:date, :start_time, :end_time)
+    params.require(:session).permit(:date, :end_time)
   end
 end
