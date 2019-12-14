@@ -11,9 +11,16 @@ class Session {
   }
   renderLi() {
     return `
+
       <div class="card" data-id="${this.id}">
-      <div class="card-info"><p>${this.start_time}</p><p>${this.end_time ? this.end_time.toLocaleTimeString():"Not Stopped Yet"}</p><p>${this.date.toDateString()}</p></div>
-      <div><button>Add Note</button></div>
+        <div class="card-info">
+          <p>Date: ${this.date.toDateString()}</p>
+          <p>Start Time: ${this.start_time}</p>
+          <p>End Time: ${this.end_time ? this.end_time.toLocaleTimeString():"Not Stopped Yet"}</p>
+        </div>
+        <div>
+          <button>Add Note</button>
+        </div>
       </div>
     `
   }
