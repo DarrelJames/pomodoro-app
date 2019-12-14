@@ -9,11 +9,12 @@ class Sessions {
   initBindingsAndEventListeners() {
     this.sessionForm = document.getElementById('new-session')
     this.sessionContainer = document.getElementById('session-container')
-    this.sessionContainer.addEventListener('click', this.handleClick().bind(this))
+    this.sessionContainer.addEventListener('click', this.handleClick.bind(this))
   }
 
-  handleClick() {
-    
+  handleClick(e) {
+    e.preventDefault()
+
   }
   createSession() {
     const value = new Date()
@@ -23,6 +24,7 @@ class Sessions {
 
       this.sessions.push(newSession)
       this.render()
+      return newSession
     })
   }
 
