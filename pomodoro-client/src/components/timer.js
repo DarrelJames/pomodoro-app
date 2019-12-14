@@ -23,8 +23,8 @@ class Timer {
 
       this.toggleClock()
 
-      app.sessions.createSession().then(() => {
-        this.currentSession = app.sessions.sessions.slice(-1)[0]
+      app.sessions.createSession().then((session) => {        
+        this.currentSession = session
       })
 
 
@@ -116,7 +116,6 @@ class Timer {
   parseAndUpdateSession(workTime, breakTime) {
     this.currentSession.end_time = new Date()
     app.sessions.updateSession(this.currentSession)
-    app.sessions.render()
     console.log(workTime);
     console.log(breakTime);
 
