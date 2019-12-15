@@ -1,6 +1,5 @@
 class NotesController < ApplicationController
-  def create
-    binding.pry
+  def create    
     session = Session.find_by_id(params[:session_id])
 
     note = session.notes.build(note_params)
