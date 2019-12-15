@@ -12,6 +12,11 @@ html {
   max-width: 800px;
   margin: auto;
   text-align: center;
+
+}
+
+#pomodoro-timer {
+  font-size: 3rem;
 }
 
 #session-container {
