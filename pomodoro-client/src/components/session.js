@@ -32,4 +32,26 @@ class Session {
       </div>
     `
   }
+
+  sessionNotesLi() {
+    return this.notes.map(note => `<li> ${note.content}</li>`).join("")
+  }
+
+  renderShow() {
+    return `
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Session Title</h2>
+      </div>
+      <div class="modal-body">        
+        <p>Date: ${this.date.toDateString()}</p>
+        <p>Start Time: ${this.start_time}</p>
+        <p>End Time: ${this.end_time ? this.end_time.toLocaleTimeString():"Not Stopped Yet"}</p>
+        <h3>Notes:</h3>
+        <ul>
+          ${this.sessionNotesLi()}
+        </ul>
+      </div>
+    `
+  }
 }
