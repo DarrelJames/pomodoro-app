@@ -30,7 +30,7 @@ class Sessions {
     const value = new Date()
 
     return this.adapter.createSession(value).then(session => {
-      const newSession = new Session(session.data)
+      const newSession = new Session(session)
 
       this.sessions.push(newSession)
       this.render()
@@ -45,7 +45,9 @@ class Sessions {
   fetchAndLoadSession() {
     this.adapter.getSessions()
       .then(sessions => {
-        return sessions.data.forEach(session => this.sessions.push(new Session(session)))
+        return sessions.forEach(session => {
+          this.sessions.push(new Session(session))
+        })
       })
       .then(() => {
         this.render()

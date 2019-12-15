@@ -1,6 +1,6 @@
 class Note {
-  constructor(noteJSON) {
+  constructor(noteJSON) {  
     this.id = noteJSON.id
-    this.content = noteJSON.attributes.content
+    this.content = noteJSON.content
   }
 }

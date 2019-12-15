@@ -1,9 +1,9 @@
 class Session {
   constructor(sessionJSON) {
     this.id = sessionJSON.id
-    this.date = new Date(sessionJSON.attributes.date)
-    this.end_time = sessionJSON.attributes.end_time ? new Date(sessionJSON.attributes.end_time) : null
-    this.notes = sessionJSON.relationships.notes.data
+    this.date = new Date(sessionJSON.date)
+    this.end_time = sessionJSON.end_time ? new Date(sessionJSON.end_time) : null
+    this.notes = sessionJSON.notes ? sessionJSON.notes : []
   }
 
   get start_time() {
