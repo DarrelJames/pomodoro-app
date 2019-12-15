@@ -1,11 +1,11 @@
 class NotesController < ApplicationController
-  def create    
+  def create
     session = Session.find_by_id(params[:session_id])
 
     note = session.notes.build(note_params)
 
     if note.save
-      render json: NoteSerializer.new(note)
+      render json: note, include: [:session]
     else
       render json: "Something went wrong"
     end

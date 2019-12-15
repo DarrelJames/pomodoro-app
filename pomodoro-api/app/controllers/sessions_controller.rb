@@ -2,25 +2,22 @@ class SessionsController < ApplicationController
 
   def index
     sessions = Session.all
-    render json: SessionSerializer.new(sessions)
+
+    render json: sessions, include: [:notes]
   end
 
   def show
     session = Session.find_by_id(params[:id])
-    options = {
-      include: [:notes]
-    }
-    render json: SessionSerializer.new(session, options)
+
+    render json: session, include: [:notes]
   end
 
-  def create    
+  def create
     session = Session.new(session_params)
 
     if session.save
-      options = {
-        include: [:notes]
-      }
-      render json: SessionSerializer.new(session, options)
+
+      render json: session, include: [:notes]
     else
       render json: "Something went wrong"
     end
@@ -29,10 +26,7 @@ class SessionsController < ApplicationController
   def update
     session = Session.find_by_id(params[:id])
     if session.update(session_params)
-      options = {
-        include: [:notes]
-      }
-      render json: SessionSerializer.new(session, options)
+      render json: session, include: [:notes]
     else
       render json: "Something went wrong"
     end
