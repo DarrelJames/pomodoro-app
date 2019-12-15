@@ -18,8 +18,15 @@ class Session {
           <p>Start Time: ${this.start_time}</p>
           <p>End Time: ${this.end_time ? this.end_time.toLocaleTimeString():"Not Stopped Yet"}</p>
         </div>
-        <div>
-          <button>Add Note</button>
+
+        <button class="open-button" id="open-button">Add Note</button>
+        <div class="form-popup" id="myForm">
+          <form class="form-container">
+            <label for="content"><b>Note</b></label>
+            <textarea placeholder="Enter Note" name="content" id="content"></textarea>
+            <button type="submit" class="btn">Add Note</button>
+            <button type="submit" class="btn cancel">Close</button>
+          </form>
         </div>
       </div>
     `
