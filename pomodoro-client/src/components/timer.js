@@ -23,7 +23,7 @@ class Timer {
 
       this.toggleClock()
 
-      app.sessions.createSession().then((session) => {        
+      app.sessions.createSession().then((session) => {
         this.currentSession = session
       })
 
@@ -52,7 +52,7 @@ class Timer {
         this.clockTimer = setInterval(() => {
           this.stepDown()
           this.displayCurrentTimeLeftInSession()
-        }, 10)
+        }, 1000)
       }
     }
   }
