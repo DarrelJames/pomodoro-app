@@ -10,12 +10,24 @@ class Sessions {
     this.sessionForm = document.getElementById('new-session')
     this.sessionContainer = document.getElementById('session-container')
     this.sessionContainer.addEventListener('click', this.handleClick.bind(this))
-
+    this.sessionContent = document.getElementById('modal-content')
+    this.modal = document.getElementById('myModal')
+    this.modal.addEventListener('click', this.handleModal.bind(this))
+    window.addEventListener('click', e => this.handleModal(e))
   }
 
+  handleModal(e) {
+
+    if (e.target == this.modal) {
+      this.modal.style.display = "none";
+    }
+    if (e.target.tagName === "SPAN") {
+      this.modal.style.display = "none";
+    }
+
+  }
   handleClick(e) {
     e.preventDefault()
-    // debugger
     if (e.target.className === "open-button") {
       e.target.style.display = "none"
       e.target.nextElementSibling.style.display = "block"
@@ -25,6 +37,14 @@ class Sessions {
       e.target.parentElement.parentElement.previousElementSibling.style.display = "block"
       e.target.parentElement.parentElement.style.display = "none"
     }
+
+    if (e.target.className === "card") {
+      const session = this.sessions.find(session => session.id === parseInt(e.target.dataset.id))
+
+      this.sessionContent.innerHTML = session.renderShow()
+      this.modal.style.display = "block"
+    }
+
   }
   createSession() {
     const value = new Date()
