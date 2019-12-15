@@ -17,6 +17,7 @@ class Session {
           <p>Date: ${this.date.toDateString()}</p>
           <p>Start Time: ${this.start_time}</p>
           <p>End Time: ${this.end_time ? this.end_time.toLocaleTimeString():"Not Stopped Yet"}</p>
+          <p>Notes: ${this.notes.length}</p>
         </div>
 
         <button class="open-button">Add Note</button>
